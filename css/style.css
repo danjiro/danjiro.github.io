@@ -1,7 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Questrial|Arvo|Raleway:400,500);
+/*@import url(http://fonts.googleapis.com/css?family=Niconne);*/
+html {
+	background: linear-gradient(315deg,rgba(115, 165, 255, 0.5) 0%, rgba(91, 88, 130, 0.6) 100%), url(/images/congruent_pentagon2.png);
+	background-attachment: fixed, fixed;
+}
 body {
 	font-family: 'Raleway', Helvetica, Arial, sans-serif;
-	background: #F4F4F4;
+	background: none;
 }
 button:focus {
 	outline:0;
@@ -9,13 +14,16 @@ button:focus {
 
 /* Navigation */
 .nav-ctrl {
-	background: #635A85;
+	/*background: #635A85;*/
+	margin-bottom: 15px;
 }
 #nav-wrapper {
-	background: black;
+/*	background: black;
 	background: -webkit-linear-gradient(left, #586282 12%, #B8D2DD 100%);
-	/*background: -webkit-linear-gradient(left, #3F3E5D -3%, #635A85 82%);*/
-	background: -moz-linear-gradient(left, #3F3E5D -3%, #635A85 82%);
+	background: -webkit-linear-gradient(left, #3F3E5D -3%, #635A85 82%);
+	background: -moz-linear-gradient(left, #3F3E5D -3%, #635A85 82%);*/
+	/*background: linear-gradient(315deg,rgba(198, 210, 221, 0.5), rgba(88, 98, 130, 0.6) 74%);*/
+    background: rgba(255, 255, 255, 0.13);
 	width:100%;
 	height: 50px;
 	float:right;
@@ -23,6 +31,9 @@ button:focus {
 	top:0;
 	z-index:1;
 	transition: all 0.4s ease;	
+	-webkit-box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.15);
+	box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.15);
 }
 /*.nav-placeholder {
 	width:100%;
@@ -31,13 +42,14 @@ button:focus {
 .menu {
 	position: relative;
 	float: left;
-	padding-top: 19px;
-	margin-left: 10px;
 	background-color: transparent;
 	background-image: none;
 	border: 1px solid transparent;
-	border-radius: 4px;
-	margin-right: 10px;
+	font-size: 28px;
+	color: white;
+	width: 50px;
+	height: 50px;
+	padding-top:6px;
 }
 .menu .icon-bar {
 	background: white;
@@ -53,9 +65,10 @@ button:focus {
 	float: left;
 }
 .nav .logo {
-	font-size: 28px;
+	font-size: 30px;
 	color: white;
-	padding-top: 6px;
+	padding-top: 4px;
+	font-weight: 500;
 }
 .logo-bars {
 	display:inline-block;
@@ -78,12 +91,10 @@ button:focus {
 }
 .settings {
 	color: white;
-	font-size: 25px;
+	font-size: 30px;
 	position: relative;
 	float: right;
-	width: 50px;
-	height: 50px;
-	padding: 10px 0 10px 13px;
+	padding: 4px 13px 5px 15px;
 	list-style-type: none;
 	cursor: pointer;
 }
@@ -158,7 +169,7 @@ button:focus {
 	display: table-cell;
 	height: 50px;
 	vertical-align: middle;
-	font-size: 20px;
+	font-size: 16px;
 }
 .current-feed .fa-rss {
 	margin-left:5px;
@@ -175,12 +186,21 @@ button:focus {
 .fav-alert.alert-dismissable .close {
 	right: 0px;
 }
+.view-animate.ng-enter,
+.view-animate.ng-leave,
+.view-animate.ng-move   {
+  -webkit-transition: 0.2s linear opacity;
+  -moz-transition: 0.2s linear opacity;
+  -o-transition: 0.2s linear opacity;
+  transition: 0.2s linear opacity;
+}
 .fav-alert.ng-enter,
 .fav-alert.ng-leave,
 .fav-alert.ng-move,
 .feed-item-animate.ng-enter,
 .feed-item-animate.ng-leave,
-.feed-item-animate.ng-move  {
+.feed-item-animate.ng-move,
+.play-album   {
   -webkit-transition: 1s linear opacity;
   -moz-transition: 1s linear opacity;
   -o-transition: 1s linear opacity;
@@ -204,18 +224,20 @@ button:focus {
 .fav-alert.ng-move.ng-move-active,
 .fav-alert.ng-enter.ng-enter-active,
 .feed-item-animate.ng-move.ng-move-active,
-.feed-item-animate.ng-enter.ng-enter-active  {
+.feed-item-animate.ng-enter.ng-enter-active {
   opacity: 1;
 }
 
 .fav-alert.ng-leave,
-.feed-item-animate.ng-leave {
+/*.feed-item-animate.ng-leave,*/
+.view-animate.ng-leave {
   opacity: 1;
   /*overflow: hidden;*/
 }
 
 .fav-alert.ng-leave.ng-leave-active,
-.feed-item-animate.ng-leave.ng-leave-active {
+/*.feed-item-animate.ng-leave.ng-leave-active,*/
+.view-animate.ng-leave.ng-leave-active {
   opacity: 0;
 
 }
@@ -252,7 +274,6 @@ button:focus {
 }
 .player-nothing-selected {
 	height: 100%;
-
 }
 .bordered-text{
 	padding: 8px;
@@ -262,6 +283,12 @@ button:focus {
 	text-align: center;
 	margin: 0 auto;
 	background:#2f2f2f;
+}
+.player-no-album {
+	padding:8px;
+	width:90%;
+	margin:0 auto;
+	text-align: center;
 }
 .player-album-cover {
 	text-align: center;
@@ -291,8 +318,6 @@ button:focus {
   flex:1 0 auto;
 }*/
 .content-wrapper {
-	background: -webkit-linear-gradient(left, #586282 12%, #B8D2DD 100%);
-	/*margin-top:15px;*/
 	width:100%;
 	transition: all 0.4s ease;
 	float:right;
@@ -304,8 +329,7 @@ button:focus {
 	-webkit-transform: translate3d(-80%,0,0);
 }
 .feed-row {
-	background: rgba(240, 240, 240, 0.5);
-	padding-top: 15px;
+	/*padding-top: 15px;*/
 }
 .feed-item {
 	background-color: white;
@@ -324,10 +348,15 @@ button:focus {
 }
 .play-album {
 	position: absolute;
-	text-align: center;
 	width: 100%;
-	bottom: 20px;
+	text-align: center;
+	bottom: 0px;
 	color: white;
+	font-size: 50px;
+	opacity: 0.6;
+}
+.play-album:hover {
+	opacity: 1;
 }
 .play-album span {
 	width: 85%;
@@ -410,6 +439,9 @@ button:focus {
 		margin-left: 10px;
 		margin-top:0;
 	}
+	.current-feed span {
+		font-size: 20px;
+	}
 }
 @media (min-width: 1200px) {
 	.player-menu {
@@ -434,5 +466,11 @@ button:focus {
 		display: inline-block;
 		margin-left: 10px;
 		margin-top:0;
+	}
+	.current-feed span {
+		display: table-cell;
+		height: 50px;
+		vertical-align: middle;
+		font-size: 22px;
 	}
 }

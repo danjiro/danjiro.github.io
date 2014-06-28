@@ -10,9 +10,9 @@
             <h4>{{playThisAlbum.albumTitle}}</h4>
           </div>
           <div class="player" ng-show="playThisAlbum.spotifyLink">
-            <iframe class="spotify-iframe" ng-src="{{playThisAlbum.spotifyEmbedUrl}}" ng-show="playThisAlbum.spotifyLink" frameborder="0" allowtransparency="true"></iframe>
-            <h4 class="bordered-text" ng-hide="playThisAlbum.spotifyLink">Sorry, this album isn't available</h4>
+            <iframe class="spotify-iframe" ng-src="{{playThisAlbum.spotifyEmbedUrl}}" frameborder="0" allowtransparency="true"></iframe>
           </div>
+          <div class="player-no-album" ng-hide="playThisAlbum.spotifyLink"><h2><i class="fa fa-exclamation-triangle"></i></h2><h4>Sorry, we couldn't find this album. Try searching for it directly in Spotify!</h4></div>
         </div>
         <h4 class="bordered-text" ng-hide="playThisAlbum.hasSelectedAlbum">Select an album to play</h4>
       </div>
@@ -23,7 +23,7 @@
           <div class="masonry-brick col-xs-12 col-sm-4 col-lg-3 feed-item-animate" ng-repeat="review in selectedFeedData">
             <div class="feed-item">
               <div class="cover-art" ng-click="loadSpotifyPlayer($index, playThisAlbum)">
-                <div class="play-album" ng-show="review.spotifyLink"><span>play album</span></div>
+                <div class="play-album" ng-show="review.spotifyLink"><i class="fa fa-play-circle"></i></div>
                 <img class="img-responsive" src="/images/no-cover-art.png" ng-src="{{review.albumCoverArtUrl}}" alt="">
               </div>
               <h3>{{review.albumArtist}}</h3>

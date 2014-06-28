@@ -59,7 +59,7 @@
 				  ratings: false
 				},
 				{
-				  name: "Consequence of Sound",
+				  name: "CoS",
 				  url: "http://consequenceofsound.net/category/reviews/album-reviews/feed/",
 				  seperator: "–",
 				  canonical: "consequence-of-sound",
