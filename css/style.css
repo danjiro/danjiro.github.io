@@ -1,12 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Questrial|Arvo|Raleway:400,500);
-/*@import url(http://fonts.googleapis.com/css?family=Niconne);*/
 html {
-	background: linear-gradient(315deg,rgba(115, 165, 255, 0.5) 0%, rgba(91, 88, 130, 0.6) 100%), url(/images/congruent_pentagon2.png);
-	background-attachment: fixed, fixed;
+	width:100%;
+	overflow-x:hidden;
 }
 body {
 	font-family: 'Raleway', Helvetica, Arial, sans-serif;
-	background: none;
+	background: linear-gradient(to right, rgba(115, 165, 255, 0.5) 0%, rgba(91, 88, 130, 0.6) 100%), url(/images/congruent_pentagon2.png);
+	/*background-attachment: fixed, fixed;*/
+	width:100%;
+	overflow-x:hidden;
 }
 button:focus {
 	outline:0;
@@ -18,19 +20,15 @@ button:focus {
 	margin-bottom: 15px;
 }
 #nav-wrapper {
-/*	background: black;
-	background: -webkit-linear-gradient(left, #586282 12%, #B8D2DD 100%);
-	background: -webkit-linear-gradient(left, #3F3E5D -3%, #635A85 82%);
-	background: -moz-linear-gradient(left, #3F3E5D -3%, #635A85 82%);*/
-	/*background: linear-gradient(315deg,rgba(198, 210, 221, 0.5), rgba(88, 98, 130, 0.6) 74%);*/
-    background: rgba(255, 255, 255, 0.13);
-	width:100%;
+	background: linear-gradient(to right, rgba(115, 165, 255, 0.5) 0%, rgba(91, 88, 130, 0.6) 100%), rgba(255, 255, 255, 0.13) url(/images/congruent_pentagon2.png);
+	width: 100%;
 	height: 50px;
-	float:right;
-/*	position:fixed;*/
-	top:0;
-	z-index:1;
-	transition: all 0.4s ease;	
+	padding: 0 15px;
+	position: relative;
+	top: 0;
+	z-index: 2;
+	transition: all 0.4s linear;
+	-webkit-backface-visibility: hidden;
 	-webkit-box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.15);
 	-moz-box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.15);
 	box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.15);
@@ -47,9 +45,8 @@ button:focus {
 	border: 1px solid transparent;
 	font-size: 28px;
 	color: white;
-	width: 50px;
 	height: 50px;
-	padding-top:6px;
+	padding: 0;
 }
 .menu .icon-bar {
 	background: white;
@@ -61,7 +58,7 @@ button:focus {
 }
 .nav {
 	/*width:80%;*/
-	margin: 0 auto;
+	margin-left: 15px;
 	float: left;
 }
 .nav .logo {
@@ -94,9 +91,12 @@ button:focus {
 	font-size: 30px;
 	position: relative;
 	float: right;
-	padding: 4px 13px 5px 15px;
+	padding: 4px 0px 5px 0px;
 	list-style-type: none;
 	cursor: pointer;
+	width: 57px;
+	margin-right: -15px;
+	text-align: center;
 }
 .settings.settings-active, .dropdown.settings-active {
 	background: #2f2f2f;
@@ -243,24 +243,21 @@ button:focus {
 }
 /* Player panel */
 .player-menu {
-	width: 80%;
 	height: 100%;
+	width: 90%;
 	position: fixed;
-	top:0;
-	background: #DEDEDE;
-	color:white;
-	z-index: 1;
+	top: 0;
+	left:0;
+	color: white;
+	z-index: 0;
 	background: #2F2F2F;
 	box-shadow: inset -7px 0 11px -4px #121111;
-	overflow-y:scroll;
-	overflow-x:hidden;
-	-webkit-transform: translate3d(-100%,0,0);
-	transform: translate3d(-100%,0,0);
-	transition: all 0.4s ease;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	display:none;
 }
 .player-open {
-	-webkit-transform: translate3d(0%,0,0);
-	transform: translate3d(0%,0,0);
+	display:block;
 }
 .player-close {
 	font-size: 18px;
@@ -318,15 +315,22 @@ button:focus {
   flex:1 0 auto;
 }*/
 .content-wrapper {
-	width:100%;
-	transition: all 0.4s ease;
-	float:right;
+	width: 100%;
+	transition: all 0.4s linear;
+	-webkit-backface-visibility: hidden;
+	position: relative;
+	z-index: 1;
+	background: linear-gradient(to right, rgba(115, 165, 255, 0.5) 0%, rgba(91, 88, 130, 0.6) 100%), rgba(255, 255, 255, 0.13) url(/images/congruent_pentagon2.png);
+	padding-top: 15px;
+	margin-top: -15px;
 }
 .content-wrapper.content-player-open, #nav-wrapper.nav-player-open {
-	-webkit-transform: translate3d(80%,0,0);
+	-webkit-transform: translate3d(90%,0,0);
+	overflow-x:hidden;
 }
 .content-wrapper.content-review-open, #nav-wrapper.nav-review-open {
-	-webkit-transform: translate3d(-80%,0,0);
+	-webkit-transform: translate3d(-90%,0,0);
+	overflow-x:hidden;
 }
 .feed-row {
 	/*padding-top: 15px;*/
@@ -336,6 +340,7 @@ button:focus {
 	padding: 15px;
 	margin-bottom: 15px;
 	/*min-height: 605px;*/
+	/*display:none;*/
 }
 .cover-art {
   background-color:grey;
@@ -348,12 +353,12 @@ button:focus {
 }
 .play-album {
 	position: absolute;
-	width: 100%;
-	text-align: center;
-	bottom: 0px;
+	bottom: 5px;
 	color: white;
-	font-size: 50px;
+	font-size: 65px;
 	opacity: 0.6;
+	right: 10px;
+	line-height: 0px;
 }
 .play-album:hover {
 	opacity: 1;
@@ -382,17 +387,14 @@ button:focus {
 	right: 0;
 	background: #FCFCFC;
 	color: black;
-	z-index: 1;
 	box-shadow: inset 6px 0 11px -8px #121111;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	-webkit-transform: translate3d(100%,0,0); 
-	transform: translate3d(100%,0,0);
-	transition: all 0.4s ease;
+	z-index:0;
+	display:none;
 }
 .review-panel-open {
-	-webkit-transform: translate3d(0%,0,0); 
-	transform: translate3d(0%,0,0);
+	display:block;
 }
 .review-content {
 	padding: 4%;
@@ -422,12 +424,13 @@ button:focus {
 		width:50%;
 	}
 	.content-wrapper.content-player-open, #nav-wrapper.nav-player-open {
-		width:65%;
-		-webkit-transform: translate3d(0%,0,0);
+		/*width:65%;*/
+		-webkit-transform: translate3d(35%,0,0);
+		overflow:hidden;
 	}
 	.content-wrapper.content-review-open, #nav-wrapper.nav-review-open {
-		width:50%;
-		-webkit-transform: translate3d(-100%,0,0);
+		/*width:50%;*/
+		-webkit-transform: translate3d(-50%,0,0);
 	}
 	.review-album-info img {
 		width: 50%;
@@ -451,11 +454,11 @@ button:focus {
 		width:40%;
 	}
 	.content-wrapper.content-player-open, #nav-wrapper.nav-player-open {
-		width: 75%;
+		-webkit-transform: translate3d(25%,0,0);
+		overflow: hidden;
 	}
 	.content-wrapper.content-review-open, #nav-wrapper.nav-review-open {
-		width: 60%;
-		-webkit-transform: translate3d(-66.7%,0,0);
+		-webkit-transform: translate3d(-40%,0,0);
 	}
 	.review-album-info img {
 		width: 50%;

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Refeedify</title>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
@@ -64,8 +64,8 @@
             <i class="fa fa-heart favorite" ng-click="setAsFavorite(feedSource)" ng-class="{blue: feedSource.name == userOptions.name}"></i>
           </li>
           <alert class="fav-alert" type='success' ng-repeat="alert in alerts">{{alert.msg}}</alert>
-          <li class="divider"></li>
-          <li><a href="#">Choose your player</a></li>
+<!--           <li class="divider"></li>
+          <li><a href="#">Choose your player</a></li> -->
         </ul>
         <div class="current-feed">
           <span><i ng-show="selectedFeed.name == userOptions.name" class="fa fa-heart"></i>{{selectedFeed.name}}<i class="fa fa-rss"></i></span>
