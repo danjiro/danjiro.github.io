@@ -347,6 +347,7 @@ button:focus {
   width:100%;
   height:auto;
   position:relative;
+  cursor: pointer;
 }
 .cover-art img{
   width:100%;
