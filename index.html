@@ -45,12 +45,12 @@
         <div class="nav">
           <div class="logo">
             <span>refeedify</span>
-            <!-- <div class="logo-bars">
-              <span class="logo-bar1"></span>
-              <span class="logo-bar2"></span>
-              <span class="logo-bar3"></span>
-            </div> -->
           </div>
+        </div>
+
+        <!-- CURRENT FEED -->
+        <div class="current-feed">
+          <span><i ng-show="selectedFeed.name == userOptions.name" class="fa fa-heart"></i>{{selectedFeed.name}}<i class="fa fa-rss"></i></span>
         </div>
 
         <!-- SETTINGS -->
@@ -67,9 +67,6 @@
 <!--           <li class="divider"></li>
           <li><a href="#">Choose your player</a></li> -->
         </ul>
-        <div class="current-feed">
-          <span><i ng-show="selectedFeed.name == userOptions.name" class="fa fa-heart"></i>{{selectedFeed.name}}<i class="fa fa-rss"></i></span>
-        </div>
 
       </nav>
     </div>

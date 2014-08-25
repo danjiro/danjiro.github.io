@@ -5,10 +5,9 @@ html {
 }
 body {
 	font-family: 'Raleway', Helvetica, Arial, sans-serif;
-	background: linear-gradient(to right, rgba(115, 165, 255, 0.5) 0%, rgba(91, 88, 130, 0.6) 100%), url(/images/congruent_pentagon2.png);
-	/*background-attachment: fixed, fixed;*/
-	width:100%;
-	overflow-x:hidden;
+	background: linear-gradient(to right, rgba(115, 165, 255, 0.5) 0%, rgba(91, 88, 130, 0.6) 100%), rgba(255, 255, 255, 0.13);
+	width: 100%;
+	overflow-x: hidden;
 }
 button:focus {
 	outline:0;
@@ -16,37 +15,34 @@ button:focus {
 
 /* Navigation */
 .nav-ctrl {
-	/*background: #635A85;*/
 	margin-bottom: 15px;
 }
 #nav-wrapper {
-	background: linear-gradient(to right, rgba(115, 165, 255, 0.5) 0%, rgba(91, 88, 130, 0.6) 100%), rgba(255, 255, 255, 0.13) url(/images/congruent_pentagon2.png);
+	display: box;
+    display: -moz-box;
+    display: -webkit-box;
+    background: rgba(122, 142, 173, 1);
 	width: 100%;
 	height: 50px;
 	padding: 0 15px;
 	position: relative;
-	top: 0;
 	z-index: 2;
 	transition: all 0.4s linear;
 	-webkit-backface-visibility: hidden;
-	-webkit-box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.15);
-	-moz-box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.15);
-	box-shadow: 0px 10px 25px -10px rgba(0,0,0,0.15);
 }
-/*.nav-placeholder {
-	width:100%;
-	height:50px;
-}*/
 .menu {
+	-moz-box-flex: none;
+	-webkit-box-flex: none;
+	box-flex: none;
+	width: 57px;
+	margin-left: -15px;
 	position: relative;
-	float: left;
 	background-color: transparent;
 	background-image: none;
 	border: 1px solid transparent;
 	font-size: 28px;
 	color: white;
 	height: 50px;
-	padding: 0;
 }
 .menu .icon-bar {
 	background: white;
@@ -57,9 +53,10 @@ button:focus {
 	margin-bottom: 4px;
 }
 .nav {
-	/*width:80%;*/
-	margin-left: 15px;
-	float: left;
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	box-flex: 1;
+	text-align: center;
 }
 .nav .logo {
 	font-size: 30px;
@@ -67,26 +64,10 @@ button:focus {
 	padding-top: 4px;
 	font-weight: 500;
 }
-.logo-bars {
-	display:inline-block;
-	margin-left: -3px;
-}
-.logo-bar1, .logo-bar2, .logo-bar3 {
-	display: inline-block;
-	background-color: white;
-	padding-right: 5px;
-	margin-right: -4px;
-}
-.logo-bar1 {
-	height: 10px;
-}
-.logo-bar2 {
-	height: 15px;
-}
-.logo-bar3 {
-	height: 20px;
-}
 .settings {
+	-moz-box-flex: none;
+	-webkit-box-flex: none;
+	box-flex: none;
 	color: white;
 	font-size: 30px;
 	position: relative;
@@ -161,15 +142,19 @@ button:focus {
 	color: red;
 }
 .current-feed{
-	color:white;
-	float: right;
-	margin-right:8px;
+	color: black;
+	position: absolute;
+	top: 50px;
+	width: 100%;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.87);
+	left: 0;
 }
 .current-feed span {
-	display: table-cell;
-	height: 50px;
-	vertical-align: middle;
-	font-size: 16px;
+	font-size: 19px;
+	color: black;
+	padding: 5px 0;
+	display: block;
 }
 .current-feed .fa-rss {
 	margin-left:5px;
@@ -247,17 +232,19 @@ button:focus {
 	width: 90%;
 	position: fixed;
 	top: 0;
-	left:0;
 	color: white;
-	z-index: 0;
 	background: #2F2F2F;
+	z-index:1;
 	box-shadow: inset -7px 0 11px -4px #121111;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	display:none;
+	overflow-y:scroll;
+	-webkit-transform: translate3d(-100%,0,0);
+	-webkit-transition: 0.4s linear all;
+	-moz-transition: 0.4s linear all;
+	-o-transition: 0.4s linear all;
+	transition: 0.4s linear all;
 }
 .player-open {
-	display:block;
+	-webkit-transform: translate3d(0,0,0);
 }
 .player-close {
 	font-size: 18px;
@@ -320,9 +307,6 @@ button:focus {
 	-webkit-backface-visibility: hidden;
 	position: relative;
 	z-index: 1;
-	background: linear-gradient(to right, rgba(115, 165, 255, 0.5) 0%, rgba(91, 88, 130, 0.6) 100%), rgba(255, 255, 255, 0.13) url(/images/congruent_pentagon2.png);
-	padding-top: 15px;
-	margin-top: -15px;
 }
 .content-wrapper.content-player-open, #nav-wrapper.nav-player-open {
 	-webkit-transform: translate3d(90%,0,0);
@@ -389,13 +373,15 @@ button:focus {
 	background: #FCFCFC;
 	color: black;
 	box-shadow: inset 6px 0 11px -8px #121111;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	z-index:0;
-	display:none;
+	overflow-y:scroll;
+	-webkit-transform: translate3d(100%,0,0);
+	-webkit-transition: 0.4s linear all;
+	-moz-transition: 0.4s linear all;
+	-o-transition: 0.4s linear all;
+	transition: 0.4s linear all;
 }
 .review-panel-open {
-	display:block;
+	-webkit-transform: translate3d(0,0,0);
 }
 .review-content {
 	padding: 4%;
@@ -418,6 +404,9 @@ button:focus {
 	margin-top:0;
 }
 @media (min-width: 768px) {
+	.nav {
+		text-align: left;
+	}
 	.player-menu {
 		width:35%;
 	}
@@ -443,9 +432,21 @@ button:focus {
 		margin-left: 10px;
 		margin-top:0;
 	}
-	.current-feed span {
-		font-size: 20px;
+	.current-feed{
+		margin-right: 8px;
+		position: relative;
+		top: 0;
+		width: auto;
+		background: none;
 	}
+	.current-feed span {
+		display: table-cell;
+		height: 50px;
+		vertical-align: middle;
+		font-size: 22px;
+		color: white;
+	}
+
 }
 @media (min-width: 1200px) {
 	.player-menu {
@@ -463,18 +464,5 @@ button:focus {
 	}
 	.review-album-info img {
 		width: 50%;
-	}
-	.review-album-info-right {
-		width: 45%;
-		vertical-align: top;
-		display: inline-block;
-		margin-left: 10px;
-		margin-top:0;
-	}
-	.current-feed span {
-		display: table-cell;
-		height: 50px;
-		vertical-align: middle;
-		font-size: 22px;
 	}
 }
